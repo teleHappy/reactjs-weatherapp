@@ -86,11 +86,6 @@ ul#panelsContainer li {
   overflow-y: auto;
 }
 
-ul#panelsContainer li.boogaloo{
-  clear: both;
-  margin-bottom: 20px;
-}
-
 .panel {
   width: 350px;
   height: 508px;

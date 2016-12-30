@@ -6,28 +6,35 @@ class Forecast extends React.Component{
 		
 	}
 	render(){
-		// this.props.data.response[0]
+
 		if(this.props.data.response === undefined) return false
+
 		let days = this.props.data.response[0].periods
-		let daysFormatted = days.map((day, idx) =>  
-			<li key={idx} className="boogaloo">
-				<h3>{day.dateTimeDay}</h3>
-				<p className="shortDate">{day.dateTimeDate}</p>
-				<img 
-					src={"../images/AerisIcons/Aeris_WxIcons_55x55/" + day.icon}
-				/>
-				<div>{day.maxTempF}<sup>&deg;</sup></div>
-				<div>{day.minTempF}<sup>&deg;</sup></div>
-				<div>{day.weatherPrimary}</div>
-			</li>
+
+		let tableFormatted = days.map((day, idx) =>
+			<tr key={idx}>
+			    <td>
+			        <h3>{day.dateTimeDay}</h3>
+			        <p className="shortDate">{day.dateTimeDate}</p>
+			    </td>
+			    <td className="icon"><img src={"../images/AerisIcons/Aeris_WxIcons_55x55/" + day.icon} /></td>
+			    <td>
+			        <div>{day.maxTempF}<sup>&deg;</sup></div>
+			        <div>{day.minTempF}<sup>&deg;</sup></div>
+			    </td>
+			    <td>{day.weatherPrimary}</td>
+			</tr>
+
 		)
 		return(
-		<div>
-			<h2>5 Day Forecast</h2>
-			<ul>
-				{daysFormatted}
-			</ul>
-        </div>
+			<div>
+				<h2>5 Day Forecast</h2>
+				<table>
+					<tbody>
+						{tableFormatted}
+					</tbody>
+				</table>
+	        </div>
 		)
 	}
 
