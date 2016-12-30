@@ -2,6 +2,13 @@
 
 ReactJS-based SPA implementation of a mobile enabled Weather App using data from api.aerisapi.com
 
+## Get Started
+* npm install
+* npm run dev (or build)
+* http-server
+* open in Chrome: localhost:8080
+
+## Features
 *   Mobile designed HTML5 weather 'web-app' (runs in a browser)
 *   Uses real weather service API
 *   Uses geolocation for weather data
@@ -12,8 +19,4 @@ ReactJS-based SPA implementation of a mobile enabled Weather App using data from
 *   Makes use of CSS3 transitions
 *   Works in the latest versions of chrome & safari (iOS & OSX)
 
-## Get Started
-* npm install
-* npm run dev (or build)
-* http-server
-* open in Chrome: localhost:8080
+
