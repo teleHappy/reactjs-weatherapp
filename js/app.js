@@ -1,8 +1,5 @@
-/*
- * Note: using anonymous function to provide closure to nested functions
- * If this were production code, providing an object namespace would be more appropriate
- * functions would be expressed as methods, and vars would be expressed as properties of the namespace object
- * */
+
+
 $(document).ready(function(){
     var client_id = 'hgB6Ymghe9qKajnVt0ej4',
         client_secret = 'tqiHZkvjWwkyhSIakrqae1cOLmr1ghJ6XLYXkTnk';
@@ -118,19 +115,20 @@ $(document).ready(function(){
      * */
     function init()
     {
-        // navigator.geolocation.getCurrentPosition(function(position)
-        // {
-        //     getWeatherData(position.coords);
-        //     getForecastData(position.coords);
-        // }, function(e)
-        // {
-        //     alert('Error getting geolocation position: ' + e.message)
-        // },
-        // {
-        //     enableHighAccuracy: true,
-        //     timeout: 10000,
-        //     maximumAge: 60000
-        // });
+        navigator.geolocation.getCurrentPosition(function(position)
+        {
+            //console.log(position.coords)
+            getWeatherData(position.coords);
+            getForecastData(position.coords);
+        }, function(e)
+        {
+            alert('Error getting geolocation position: ' + e.message)
+        },
+        {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 60000
+        });
     }
 
     /*
@@ -151,7 +149,8 @@ $(document).ready(function(){
                 data.response[0].ob.sunrise = moment.unix(data.response[0].ob.sunrise).format('h:m a');
                 data.response[0].ob.sunset = moment.unix(data.response[0].ob.sunset).format('h:m a');
                 data.response[0].obDateTime = moment(data.response[0].obDateTime).format('dddd MMMM DD YYYY');
-                buildCurrent(data.response[0])
+                //console.log(JSON.stringify(data.response[0]))
+                //buildCurrent(data.response[0])
             }
         });
 
@@ -177,33 +176,11 @@ $(document).ready(function(){
                     p.dateTimeDay = moment(p.dateTimeISO).format('ddd');
                     p.dateTimeDate = moment(p.dateTimeISO).format('MMM DD');
                 });
-                buildForecast(data);
+                //buildForecast(data);
+                //console.log(JSON.stringify(data))
             }
         });
     }
-
-    /*
-     *  builds 'current conditions' UI
-     *  @param {obj} weather data
-     * */
-    function buildCurrent(data)
-    {
-        var currentTpl = $('#currentTpl').html();
-        var currentContent = Mustache.to_html(currentTpl, data);
-        $('#current').append(currentContent);
-    }
-
-    /*
-     *  builds '5 day forecast' UI
-     *  @param {obj} weather data
-     * */
-    function buildForecast(data)
-    {
-        var forecastTpl = $('#forecastTpl').html();
-        var forecastContent = Mustache.to_html(forecastTpl, data.response[0]);
-        $('#forecast').append(forecastContent);
-    }
-
 
     var ul = document.getElementById('panelsContainer'),
         listCount = ul.getElementsByTagName('li').length,

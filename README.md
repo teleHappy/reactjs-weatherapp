@@ -11,3 +11,9 @@ ReactJS-based SPA implementation of a mobile enabled Weather App using data from
 *   Touch compatible
 *   Makes use of CSS3 transitions
 *   Works in the latest versions of chrome & safari (iOS & OSX)
+
+## Get Started
+* npm install
+* npm run dev (or build)
+* http-server
+* open in Chrome: localhost:8080
