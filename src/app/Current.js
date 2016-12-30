@@ -33,7 +33,7 @@ class Current extends React.Component{
 		    <tbody>
 		        <tr>
 		            <th>Feels Like</th>
-		            <td>{this.props.data.ob.feelslikeF}}<sup>&deg;</sup></td>
+		            <td>{this.props.data.ob.feelslikeF}<sup>&deg;</sup></td>
 		        </tr>
 		        <tr>
 		            <th>Dew Point</th>
