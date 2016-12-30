@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 
-import Current from './Current'
-import Forecast from './Forecast'
+import Current from './components/Current'
+import Forecast from './components/Forecast'
 import moment from 'moment'
 
 let currentData = {}
