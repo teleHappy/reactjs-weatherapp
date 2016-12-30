@@ -5,6 +5,8 @@ class Current extends React.Component{
 		super(props)
 	}
 	render(){
+		if(this.props.data.ob === undefined) return false;
+
 		return(
 		<div>
 		<h2>Current Conditions</h2>
@@ -26,6 +28,32 @@ class Current extends React.Component{
 		    </div>
 		</div>
 
+		<div className="details">
+		    <table>
+		    <tbody>
+		        <tr>
+		            <th>Feels Like</th>
+		            <td>{this.props.data.ob.feelslikeF}}<sup>&deg;</sup></td>
+		        </tr>
+		        <tr>
+		            <th>Dew Point</th>
+		            <td>{this.props.data.ob.dewpointF}<sup>&deg;</sup></td>
+		        </tr>
+		        <tr>
+		            <th>Humidity</th>
+		            <td>{this.props.data.ob.humidity}%</td>
+		        </tr>
+		        <tr>
+		            <th>Sunrise</th>
+		            <td>{this.props.data.ob.sunrise}</td>
+		        </tr>
+		        <tr>
+		            <th>Sunset</th>
+		            <td>{this.props.data.ob.sunset}</td>
+		        </tr>
+		        </tbody>
+		    </table>
+		</div>
 		
 
         </div>

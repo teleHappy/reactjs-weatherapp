@@ -7,9 +7,10 @@ class Forecast extends React.Component{
 	}
 	render(){
 		// this.props.data.response[0]
+		if(this.props.data.response === undefined) return false
 		let days = this.props.data.response[0].periods
 		let daysFormatted = days.map((day, idx) =>  
-			<li key={idx}>
+			<li key={idx} className="boogaloo">
 				<h3>{day.dateTimeDay}</h3>
 				<p className="shortDate">{day.dateTimeDate}</p>
 				<img 
