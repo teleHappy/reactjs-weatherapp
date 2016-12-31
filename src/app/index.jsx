@@ -19,6 +19,7 @@ class App extends React.Component {
   	}
   	this.getWeatherData = this.getWeatherData.bind(this)
   	this.getForecastData = this.getForecastData.bind(this)
+  	this.getWeatherDataForLocation = this.getWeatherDataForLocation.bind(this)
   }
   render () {
     return (
@@ -38,7 +39,7 @@ class App extends React.Component {
       var that = this;
       var lat = coords.latitude,
           lng = coords.longitude,
-          url = 'https://api.aerisapi.com/observations/closest?p=' + lat + ',' + lng + '&client_id=' + client_id + '&client_secret=' + client_secret + '&limit=1';
+          url = `https://api.aerisapi.com/observations/closest?p=${lat},${lng}&client_id=${client_id}&client_secret=${client_secret}&limit=1`;
       $.ajax(
       {
           dtatType: 'json',
@@ -65,7 +66,7 @@ class App extends React.Component {
       var that = this
       var lat = coords.latitude,
           lng = coords.longitude,
-          url = 'https://api.aerisapi.com/forecasts/closest?p=' + lat + ',' + lng + '&client_id=' + client_id + '&client_secret=' + client_secret + '&filter=day&limit=5';
+          url = `https://api.aerisapi.com/forecasts/closest?p=${lat},${lng}&client_id=${client_id}&client_secret=${client_secret}&filter=day&limit=5`;
       $.ajax(
       {
           dataType: 'json',
@@ -85,7 +86,11 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-  	//iniyialize data
+   this.getWeatherDataForLocation();
+  }
+
+  getWeatherDataForLocation ()
+  {
   	navigator.geolocation.getCurrentPosition((position)=>
   	{
   	    this.getWeatherData(position.coords);
@@ -100,9 +105,10 @@ class App extends React.Component {
   	    timeout: 10000,
   	    maximumAge: 60000
   	});
-  	
   }
 
 }
+
+
 
 render(<App/>, document.getElementById('panelsContainer'));
