@@ -33,11 +33,7 @@ sup {
 nav {
   width: 100%;
   height: 52px;
-  background-image: -webkit-gradient(linear, to bottom, to top, color-stop(0%, rgba(163, 166, 168, 0.91)), color-stop(35%, rgba(15, 15, 15, 0.82)), color-stop(36%, rgba(15, 15, 15, 0.82)), color-stop(100%, rgba(15, 15, 15, 0.85)));
-  background-image: -webkit-linear-gradient(to bottom, rgba(163, 166, 168, 0.91) 0%, rgba(15, 15, 15, 0.82) 35%, rgba(15, 15, 15, 0.82) 36%, rgba(15, 15, 15, 0.85) 100%);
-  background-image: -moz-linear-gradient(to bottom, rgba(163, 166, 168, 0.91) 0%, rgba(15, 15, 15, 0.82) 35%, rgba(15, 15, 15, 0.82) 36%, rgba(15, 15, 15, 0.85) 100%);
-  background-image: -o-linear-gradient(to bottom, rgba(163, 166, 168, 0.91) 0%, rgba(15, 15, 15, 0.82) 35%, rgba(15, 15, 15, 0.82) 36%, rgba(15, 15, 15, 0.85) 100%);
-  background-image: linear-gradient(to bottom, rgba(163, 166, 168, 0.91) 0%, rgba(15, 15, 15, 0.82) 35%, rgba(15, 15, 15, 0.82) 36%, rgba(15, 15, 15, 0.85) 100%);
+  background-color: rgba(0,0,0,.35);
 }
 nav .current, nav .forecast {
   position: relative;
@@ -167,11 +163,4 @@ ul#panelsContainer li {
 #forecast table td p.shortDate {
   font-size: .6em;
 }
-#forecast table td.icon img {
-  width: 55%;
-  -webkit-transition: all 0.5s ease-in-out;
-  -webkit-transition-delay: 0.2s;
-  -moz-transition: all 0.5s ease-in-out 0.2s;
-  -o-transition: all 0.5s ease-in-out 0.2s;
-  transition: all 0.5s ease-in-out 0.2s;
-}
+

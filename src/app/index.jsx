@@ -19,8 +19,9 @@ class App extends React.Component {
   	}
   	this.getWeatherData = this.getWeatherData.bind(this)
   	this.getForecastData = this.getForecastData.bind(this)
-  	this.getWeatherDataForLocation = this.getWeatherDataForLocation.bind(this)
+  	this.getWeatherDataForCurrentPosition = this.getWeatherDataForCurrentPosition.bind(this)
   }
+
   render () {
     return (
     	<div>
@@ -86,10 +87,10 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-   this.getWeatherDataForLocation();
+   this.getWeatherDataForCurrentPosition();
   }
 
-  getWeatherDataForLocation ()
+  getWeatherDataForCurrentPosition ()
   {
   	navigator.geolocation.getCurrentPosition((position)=>
   	{
