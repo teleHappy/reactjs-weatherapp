@@ -14,7 +14,7 @@ class Current extends React.Component{
 		
 		<div className="highlight">
 		    <div className="temp">{ this.props.data.ob.tempF }<sup>&deg;F</sup></div>
-		    <div className="icon">
+		    <div className="w-icon">
 		    <img 
 		    	src={ "../images/AerisIcons/Aeris_WxIcons_55x55/" + this.props.data.ob.icon }
 		    	width="55" 

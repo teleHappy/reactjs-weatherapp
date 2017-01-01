@@ -31,7 +31,14 @@ class App extends React.Component {
     	
 	    	<nav role="navigation"><span className="button current"><a>Now</a></span><span className="button forecast"><a>5 Day</a></span></nav>
 	    	<div id="navTracker"></div>
-	    	<div id="loader" className="panel" style={{display: (this.state.isLoading)? "block" : "none"}}><h1>RD</h1></div>
+	    	<div id="loader" className="panel loader" style={{display: (this.state.isLoading)? "block" : "none"}}>
+	    	<div className="icon thunder-storm">
+	    	  <div className="lightning">
+	    	    <div className="bolt"></div>
+	    	    <div className="bolt"></div>
+	    	  </div>
+	    	</div>
+	    	</div>
 	    	<ul id="panelsContainer"  style={{display: (this.state.isLoading)? "none" : "block"}}>
 	    	  	<div>
 	    			<li id="current" className="panel"><Current data={this.state.currentData}/></li>

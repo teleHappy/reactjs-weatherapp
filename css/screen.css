@@ -111,7 +111,7 @@ ul#panelsContainer li {
   vertical-align: super;
 }
 
-#current .highlight .icon {
+#current .highlight .w-icon {
   float: right;
   height: 100%;
   position: relative;
@@ -160,3 +160,8 @@ ul#panelsContainer li {
   font-size: .6em;
 }
 
+#loader {
+  text-align: center;
+  padding-top: 60px;
+  height: 448px;
+}

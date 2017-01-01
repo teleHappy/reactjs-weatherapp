@@ -17,7 +17,7 @@ class Forecast extends React.Component{
 			        <h3>{day.dateTimeDay}</h3>
 			        <p className="shortDate">{day.dateTimeDate}</p>
 			    </td>
-			    <td className="icon"><img src={"../images/AerisIcons/Aeris_WxIcons_55x55/" + day.icon} /></td>
+			    <td className="w-icon"><img src={"../images/AerisIcons/Aeris_WxIcons_55x55/" + day.icon} /></td>
 			    <td>
 			        <div>{day.maxTempF}<sup>&deg;</sup></div>
 			        <div>{day.minTempF}<sup>&deg;</sup></div>
