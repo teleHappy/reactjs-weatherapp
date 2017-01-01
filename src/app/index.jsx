@@ -15,7 +15,8 @@ class App extends React.Component {
   	super(props)
   	this.state = {
   		currentData: currentData,
-  		forecastData: forecastData
+  		forecastData: forecastData,
+  		isLoading: true
   	}
   	this.getWeatherData = this.getWeatherData.bind(this)
   	this.getForecastData = this.getForecastData.bind(this)
@@ -25,9 +26,21 @@ class App extends React.Component {
   render () {
     return (
     	<div>
-  		<li id="current" className="panel"><Current data={this.state.currentData}/></li>
-  		<li id="forecast" className="panel"><Forecast data={this.state.forecastData}/></li>
+    	
+    	<div id="mainApp">
+    	
+	    	<nav role="navigation"><span className="button current"><a>Now</a></span><span className="button forecast"><a>5 Day</a></span></nav>
+	    	<div id="navTracker"></div>
+	    	<div id="loader" className="panel" style={{display: (this.state.isLoading)? "block" : "none"}}><h1>RD</h1></div>
+	    	<ul id="panelsContainer"  style={{display: (this.state.isLoading)? "none" : "block"}}>
+	    	  	<div>
+	    			<li id="current" className="panel"><Current data={this.state.currentData}/></li>
+	    			<li id="forecast" className="panel"><Forecast data={this.state.forecastData}/></li>
+	    	  	</div>
+	    	</ul>
     	</div>
+    	</div>
+    	
     )
   }
 
@@ -51,7 +64,8 @@ class App extends React.Component {
               data.response[0].ob.sunset = moment.unix(data.response[0].ob.sunset).format('h:m a');
               data.response[0].obDateTime = moment(data.response[0].obDateTime).format('dddd MMMM DD YYYY');
               that.setState((prevState)=>{
-              	prevState.currentData = data.response[0]
+              	prevState.currentData = data.response[0],
+              	prevState.isLoading = false;
               })
           }
       });
@@ -111,5 +125,4 @@ class App extends React.Component {
 }
 
 
-
-render(<App/>, document.getElementById('panelsContainer'));
+render(<App/>, document.getElementById('appContainer'));

@@ -8,11 +8,7 @@ body {
 }
 
 body {
-  background-image: -webkit-gradient(radial, ellipse at center, 0, ellipse at center, 80, color-stop(0%, #2860c1), color-stop(80%, #174c77));
-  background-image: -webkit-radial-gradient(ellipse at center, #2860c1 0%, #174c77 80%);
-  background-image: -moz-radial-gradient(ellipse at center, #2860c1 0%, #174c77 80%);
-  background-image: -o-radial-gradient(ellipse at center, #2860c1 0%, #174c77 80%);
-  background-image: radial-gradient(ellipse at center, #2860c1 0%, #174c77 80%);
+  background-color: #2860c1
 }
 
 sup {
