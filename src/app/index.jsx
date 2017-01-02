@@ -4,6 +4,8 @@ import {render} from 'react-dom';
 
 import Current from './components/Current'
 import Forecast from './components/Forecast'
+import Loader from './components/Loader'
+import Navigation from './components/Navigation'
 import moment from 'moment'
 
 let currentData = {}
@@ -26,33 +28,26 @@ class App extends React.Component {
 
   render () {
     
-  	//TODO: component:navigation extend EventEmmiter to handle clicks
-  	//TODO: component:loader
     return (
     	<div>
     	
-    	<div id="mainApp">
-    		
-	    	<nav role="navigation"><span className="button current"><a>Now</a></span><span className="button forecast"><a>5 Day</a></span></nav>
-	    	<div id="navTracker"></div>
 	    	
+	    		
+		    	<Navigation />
+		    	
+		    	<Loader isLoading={this.state.isLoading} />
+		    	
+		    	<ul id="panelsContainer"  style={{display: (this.state.isLoading)? "none" : "block"}}>
+	    		
+	    			<li id="current" className="panel"><Current data={this.state.currentData}/></li>
+	    		
+	    			<li id="forecast" className="panel"><Forecast data={this.state.forecastData}/></li>
+		    	
+		    	</ul>
 	    	
-	    	<div id="loader" className="panel loader" style={{display: (this.state.isLoading)? "block" : "none"}}>	    	
-		    	<div className="icon thunder-storm">
-		    	  <div className="lightning">
-		    	    <div className="bolt"></div>
-		    	    <div className="bolt"></div>
-		    	  </div>
-		    	</div>
 	    	</div>
-	    	
-	    	<ul id="panelsContainer"  style={{display: (this.state.isLoading)? "none" : "block"}}>
-    			<li id="current" className="panel"><Current data={this.state.currentData}/></li>
-    			<li id="forecast" className="panel"><Forecast data={this.state.forecastData}/></li>
-	    	</ul>
+
     	
-    	</div>
-    	</div>
     	
     )
   }
@@ -138,4 +133,4 @@ class App extends React.Component {
 }
 
 
-render(<App/>, document.getElementById('appContainer'));
+render(<App/>, document.getElementById('mainApp'));

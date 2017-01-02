@@ -15,11 +15,16 @@
 
 <body>
 
-<div id="appContainer"></div>
+<div id="appContainer">
+
+    <div id="mainApp"></div>
+
+</div>
 
 <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
 <script src="src/public/bundle.js" type="text/javascript"></script>
 <script>
+// TODO: move to index.jsx and replaxe with EventEmmitter
     $('nav span.current').on('click', function()
     {
         $('#panelsContainer').css('left', '0');
