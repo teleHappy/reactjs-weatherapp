@@ -85,7 +85,7 @@ ul#panelsContainer li {
   padding: 2px 4px;
 }
 
-#current h2, #current p {
+#current h2, #current p, #forecast h2 {
   text-align: center;
 }
 
@@ -156,6 +156,11 @@ ul#panelsContainer li {
   padding: 10px 12px;
   height: 50px;
 }
+
+#forecast table td.temps {
+  text-align: center
+}
+
 #forecast table td p.shortDate {
   font-size: .6em;
 }
