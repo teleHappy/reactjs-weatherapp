@@ -1,4 +1,4 @@
-# Weather Application
+## Weather Application
 
 ReactJS-based SPA implementation of a mobile enabled Weather App using data from api.aerisapi.com
 
